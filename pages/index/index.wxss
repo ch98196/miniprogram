@@ -1,0 +1,65 @@
+.page {
+  height: 100%;
+  background-color: var(--weui-BG-2);
+}
+
+.page-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--weui-BG-0);
+  width: 100%;
+  padding: 24px 0 56px 0;
+  height: 120px;
+}
+
+.page-body-title {
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+.page-body-text {
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--weui-FG-2);
+}
+
+.page-body-text-small {
+  font-size: 12px;
+  line-height: 26px;
+  color: var(--weui-FG-2);
+}
+
+.page-body-text-tip {
+  font-size: 12px;
+  line-height: 26px;
+  margin-top: 24px;
+  color: var(--weui-FG-2);
+}
+
+.page-body-text-network-type {
+  font-size: 24px;
+}
+
+.weui-label {
+  width: 4.1em;
+}
+
+.demo {
+  margin: 0 32px;
+  line-height: 28px;
+}
+
+.demo .margin-16:not(:last-child) {
+  margin-right: 16rpx;
+}
+
+.t-tag {
+  border: 0px !important;
+  color: var(--weui-FG-0) !important;
+  background-color: var(--weui-FG-5) !important;
+}
+
+.t-icon-close {
+  color: var(--weui-FG-2) !important;
+}

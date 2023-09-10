@@ -1,0 +1,17 @@
+{
+  "pages": ["pages/index/index", "pages/index/systemInfo"],
+  "window": {
+    "backgroundColor": "@navBgColor",
+    "navigationBarTextStyle": "@navTxtStyle",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "@navBgColor"
+  },
+  "useExtendedLib": {
+      "weui": true
+  },
+  "style": "v2",
+  "darkmode": true,
+  "themeLocation": "theme.json",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

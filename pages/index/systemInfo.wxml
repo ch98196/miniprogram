@@ -1,0 +1,20 @@
+<page-meta root-font-size="system" />
+<view class="page" data-weui-theme="{{theme}}">
+    <view class="weui-msg">
+        <view class="weui-msg__text-area" style="padding-top: 0;">
+            <view class="weui-msg__desc">系统信息</view>
+            <view class="weui-msg__custom-area">
+                <view class="weui-form-preview__list">
+                    <view class="weui-form-preview__item" wx:for="{{systemInfo}}" wx:key="key"><label class="weui-form-preview__label">{{item.key}}</label>
+                        <view class="weui-form-preview__value">{{item.value}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area">
+                <view class="weui-btn weui-btn_default" bind:tap="back">返回</view>
+            </view>
+        </view>
+    </view>
+</view>

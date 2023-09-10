@@ -1,0 +1,79 @@
+<page-meta root-font-size="system" />
+<view class="page" data-weui-theme="{{theme}}">
+    <mp-toptips msg="{{msg}}" type="{{status}}" show="{{showToptips}}"></mp-toptips>
+    <view class="page-body">
+        <view class="page-body-title">地下偶像活动抽选系统</view>
+        <block wx:if="{{condition >= 0}}">
+            <text class="page-body-text-network-type">{{list[condition-1]}}</text>
+            <text class="page-body-text-tip" style="text-align: center; line-height: 1.8;">{{ isMotto ? '抽取中，请稍候' : '活动名称：'+activityName+'\n生成时间：'+systemTime}}</text>
+        </block>
+        <block wx:elif="{{activityName.length < 2 || list.length < 2}}">
+            <text class="page-body-text">配置后开始抽选</text>
+        </block>
+        <block wx:else>
+            <text class="page-body-text">请确认当前活动名称</text>
+            <text class="page-body-text-small">{{activityName}}</text>
+            <text class="page-body-text-tip">{{isEdit ? '保存配置以开始抽选' : ''}}</text>
+        </block>
+    </view>
+    <view class="weui-flex" style="margin: 32px;">
+        <view class="weui-flex__item" style="margin-right: 8px;">
+            <view class="weui-btn weui-btn_default {{isMotto ? 'weui-btn_disabled' : ''}}" style="max-width: 100%;" disabled="{{isMotto}}" wx:if="{{!isEdit}}" bind:tap="{{isMotto ? '' : 'edit'}}">{{isMotto ? '不可配置' : '配置名单'}}</view>
+            <view class="weui-btn weui-btn_default" style="max-width: 100%;" wx:else="{{isEdit}}" bind:tap="save">保存配置</view>
+        </view>
+        <view class="weui-flex__item" style="margin-left: 8px;">
+            <view class="weui-btn weui-btn_primary {{isMotto || isEdit || activityName === null || list.length < 2 ? 'weui-btn_disabled' : ''}}" style="max-width: 100%;" disabled="{{isMotto || isEdit || activityName === null || list.length < 2}}" bind:tap="{{isMotto || isEdit ? '' : 'startMotto'}}">{{isMotto ? '抽取中 ('+ count +')' : '开始抽选'}}</view>
+        </view>
+    </view>
+    <view>
+        <view class="weui-cells__group weui-cells__group_form">
+            <view class="weui-cells__title">抽选名单 (共{{list.length}}个)</view>
+            <view class="demo">
+                <block wx:for="{{list}}" wx:key="item">
+                    <t-tag class="margin-16" bind:close="delete" data-item="{{item}}" closable="{{isEdit}}" variant="light">{{item}}</t-tag>
+                </block>
+            </view>
+        </view>
+        <view class="weui-cells__group weui-cells__group_form" wx:if="{{isEdit}}">
+            <view class="weui-cells weui-cells_form">
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__bd weui-flex">
+                        <input class="weui-input" value="{{inputValue}}" bind:confirm="add" bind:input="change" placeholder="输入团体名称，按回车键新增" placeholder-class="weui-input__placeholder" />
+                    </view>
+                </view>
+            </view>
+            <view class="weui-cells__tips weui-cells__tips_warn " style="{{inputStatus == 'error' ? 'display:block' : 'display:none'}}">{{inputTips}}</view>
+        </view>
+        <view class="weui-cells__group weui-cells__group_form" wx:if="{{isEdit}}">
+            <view class="weui-cells__title">更多选项</view>
+            <view class="weui-cells weui-cells_form">
+                <view class="weui-cell weui-cell_active">
+                    <view class="weui-cell__hd">
+                        <label class="weui-label">活动名称</label>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" value="{{activityName}}" bindinput="bindInput" placeholder="请输入活动名称" placeholder-class="weui-input__placeholder" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+                    <view class="weui-cell__hd">
+                        <label class="weui-label">抽取时长</label>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <picker aria-role="combobox" bindchange="bindPickerChange" range="{{options}}" range-key="label">
+                            <view class="weui-select">{{options[value].label}}</view>
+                        </picker>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weui-footer {{!isEdit ? 'weui-footer_fixed-bottom' : ''}}" style="{{isEdit ? 'margin-top: 32px;' : ''}}">
+        <view class="weui-footer__links">
+            <navigator class="weui-footer__link weui-wa-hotarea" url="./systemInfo">系统信息</navigator>
+        </view>
+    </view>
+
+    <!--text class="page-body-text-small" decode="{{true}}">1. 本功能用于在地下偶像活动中确定参与特典会的对象。配置活动名称和出场团体名单后即可开始抽选，系统随机滚动3秒后显示抽选结果。内测期间仅支持抽选团体，具体的成员目前可自行决定。\n2. 本功能仅限正圆工坊内部使用，每个用户每场活动仅限抽选一次，抽选结果将上传后台存档，严禁借此功能对小偶像进行恶搞、侮辱等行为。\n3. 如需对特典券费用申请补助，需在特典券使用前，将抽选结果页面与对应成员的特典券合照并存档备查。</text-->
+
+</view>
