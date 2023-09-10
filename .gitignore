@@ -3,6 +3,8 @@
 Thumbs.db
 $RECYCLE.BIN/
 
+miniprogram_npm/
+
 # macOS
 .DS_Store
 .fseventsd
@@ -12,4 +14,4 @@ $RECYCLE.BIN/
 
 # Node.js
 node_modules/
-miniprogram_npm/
+
