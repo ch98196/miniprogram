@@ -5,6 +5,7 @@
             systemTime: '',
             activityName: '',
             list: [],
+            //list: ['愉粤冰室', '玻璃纱星', '失格NPC', '恋音契约', 'StarWinK', '鲸鱼汽水', '7SINS', '素质MIX', '凌晨12点', 'CKS', 'TSD土笋冻冻', 'REAL1TY', '信号灯Colorful'], //测试数据
             count: '',
             setTime: 3,
             isMotto: false,
@@ -34,7 +35,9 @@
         },
 
         onLoad() {
-            const { theme } = wx.getAppBaseInfo();
+            const {
+                theme
+            } = wx.getAppBaseInfo();
             this.setData({
                 theme,
             })
@@ -126,7 +129,9 @@
          */
         add(e) {
             let list = this.data.list
-            if (list.includes(e.detail.value)) {
+            if (e.detail.value.length < 1) {
+                console.log('用户提交空值')
+            } else if (list.some((item) => item.toLowerCase() == e.detail.value.toLowerCase())) {
                 this.setData({
                     inputStatus: 'error',
                     inputTips: '名称重复'
@@ -138,6 +143,11 @@
                     inputValue: '',
                 })
             }
+        },
+        clear() {
+            this.setData({
+                inputValue: '',
+            })
         },
         change() {
             if (this.data.inputStatus == 'error') {

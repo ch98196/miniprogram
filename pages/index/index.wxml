@@ -38,7 +38,7 @@
             <view class="weui-cells weui-cells_form">
                 <view class="weui-cell weui-cell_active">
                     <view class="weui-cell__bd weui-flex">
-                        <input class="weui-input" value="{{inputValue}}" bind:confirm="add" bind:input="change" placeholder="输入团体名称，按回车键新增" placeholder-class="weui-input__placeholder" />
+                        <input class="weui-input" value="{{inputValue}}" bind:confirm="add" bind:blur="clear" bind:input="change" placeholder="输入团体名称，按回车键新增" placeholder-class="weui-input__placeholder" />
                     </view>
                 </view>
             </view>
@@ -60,7 +60,7 @@
                         <label class="weui-label">抽取时长</label>
                     </view>
                     <view class="weui-cell__bd">
-                        <picker aria-role="combobox" bindchange="bindPickerChange" range="{{options}}" range-key="label">
+                        <picker bindchange="bindPickerChange" range="{{options}}" range-key="label">
                             <view class="weui-select">{{options[value].label}}</view>
                         </picker>
                     </view>
