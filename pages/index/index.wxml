@@ -1,0 +1,110 @@
+<view style="padding-top: {{statusBarHeight}}px; padding-bottom: 34px;">
+  <view class="result-card">
+    <view class="result-area">
+      <view class="result-main">
+        <text wx:if="{{result.group >= 0 && result.member >= 0}}">{{list[result.group].member[result.member]}}</text>
+        <text wx:elif="{{result.group >= 0 && result.member < 0}}">{{list[result.group].name}}</text>
+        <text wx:else>准备中</text>
+      </view>
+      <view class="result-desc">
+        <text wx:if="{{ result.group >= 0 && result.member >= 0 }}">{{list[result.group].name}}</text>
+        <text wx:if="{{ result.group >= 0 && result.member < 0 }}">（不指定成员）</text>
+        <text wx:elif="{{ result.group < 0 && orderGroupId >= 0 }}" class="order-group">已指定：{{list[orderGroupId].name}}</text>
+        <text wx:elif="{{ result.group < 0 && list.length >= 2 && status == 0 }}" class="ready-tips">请开始抽选</text>
+        <text wx:elif="{{ result.group < 0 && list.length < 2 }}" class="error-tips">团体数量不足或未指定</text>
+      </view>
+      <view class="result-tips">
+        <view>活动名称：{{name || '未设置'}}</view>
+        <view wx:if="{{result.time != ''}}">
+          <text>生成时间：{{result.time}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="operation-area">
+      <block>
+        <t-button theme="light" block style="margin-right: 16rpx;" bind:tap="openOptions" disabled="{{status == 1 ? true : false}}">选项</t-button>
+      </block>
+      <block>
+        <t-button theme="primary" block wx:if="{{status == 0}}" disabled="{{list.length < 2 && orderGroupId < 0 ? true : false}}" bind:tap="startMotto">开始</t-button>
+        <t-button theme="primary" block wx:elif="{{status == 1}}" bind:tap="stopMotto">停止</t-button>
+      </block>
+    </view>
+  </view>
+  <view class="list-card" style="min-height: {{contentHeight}}px;">
+    <view class="group-list-title">
+      <text class="list-title">待抽选团体列表 (共{{list.length}}个)</text>
+      <view class="add-btn" bind:tap="add">
+        <t-icon name="add-circle" size="28rpx" style="margin-right: 6rpx;" />
+        <view>新增</view>
+      </view>
+    </view>
+    <block wx:if="{{list.length > 0}}">
+      <view class="group-list" wx:for="{{list}}" wx:for-item="group" wx:key="index">
+        <view class="group-desc">
+          <view class="group-name">{{group.name}} ({{group.member.length}})</view>
+          <view class="edit-btn" data-id="{{index}}" bind:tap="edit">编辑</view>
+        </view>
+        <view class="member-list">
+          <view wx:if="{{group.member.length > 0}}" style="line-height: 32rpx; padding-top: 16rpx;">
+            <t-tag t-class="tag" size="medium" variant="light" wx:for="{{group.member}}" wx:key="item">{{item}}</t-tag>
+          </view>
+          <view wx:else style="text-align: center; width: 100%; line-height: 32rpx; padding: 24rpx 0;">
+            <text class="empty-tips">未指定成员</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view style="text-align: center; width: 100%; line-height: 32rpx; padding: 48rpx 0;">
+        <text class="empty-tips">无团体，请先新增</text>
+      </view>
+    </block>
+  </view>
+</view>
+
+<t-popup visible="{{visible.options}}" bind:visible-change="onOptionsChange" placement="bottom">
+  <view class="options-popup">
+    <view class="header">
+      <view class="btn btn--cancel" bind:tap="closeOptions">取消</view>
+      <view class="title">选项</view>
+      <view class="btn btn--confirm" bind:tap="closeOptions">确定</view>
+    </view>
+    <view class="block">
+      <t-cell-group theme="card" style="margin: 0" title="以下配置点击确定后生效">
+        <t-input t-class="item" label="活动名称" placeholder="请输入" value="{{currentData.name}}" bind:change="onNameChange" cursor-spacing="36" />
+        <t-cell t-class="item" title="指定团体" note="{{currentIndex[0] > 0 ? '已指定' : '未指定'}}" arrow hover bind:tap="orderGroup" />
+      </t-cell-group>
+      <t-cell-group theme="card" style="margin: 32rpx 0 0">
+        <t-cell t-class="item" title="清除抽选结果" hover arrow bind:tap="clearResult" />
+        <t-cell t-class="item" title="清除全部数据" hover arrow bind:tap="clearData" />
+      </t-cell-group>
+      <t-cell-group theme="card" style="margin: 32rpx 0 0">
+        <t-cell t-class="item" title="关于" hover="{{false}}" bordered="{{false}}" arrow url="/pages/about/index" />
+      </t-cell-group>
+    </view>
+  </view>
+</t-popup>
+
+<t-popup visible="{{visible.edit}}" bind:visible-change="onEditChange" placement="bottom">
+  <view class="options-popup">
+    <view class="header">
+      <view class="btn btn--cancel" bind:tap="closeEdit">取消</view>
+      <view class="title">编辑</view>
+      <view class="btn btn--confirm" bind:tap="save">确定</view>
+    </view>
+    <view class="block">
+      <t-cell-group theme="card" style="margin: 0">
+        <t-input t-class="item" label="团体名称" placeholder="请输入" data-id="name" status="error" tips="{{errmsg[0]}}" value="{{currentData.name}}" borderless bind:change="onNameChange" cursor-spacing="36" />
+      </t-cell-group>
+      <text class="label" decode>在下方录入成员，支持中英文逗号/顿号分隔；\n以下字符将被屏蔽：空格、换行、@；\n如成员数量不足2个，已录入的成员将不会保存；\n已被指定的团体，如编辑后成员数量不足2个，将自动取消指定。</text>
+      <t-cell-group theme="card" style="margin: 0;">
+        <t-textarea t-class="item" style="height: 256rpx;" placeholder="请输入" data-id="member" disableDefaultPadding="{{true}}" bind:change="onMemberChange" value="{{currentData.member}}" show-confirm-bar="{{false}}" confirm-type="done" cursor-spacing="36" />
+        <view class="errmsg" wx:if="{{ errmsg.length > 0 }}" decode>{{errmsg[1]}}</view>
+      </t-cell-group>
+    </view>
+  </view>
+</t-popup>
+
+<t-picker visible="{{visible.picker}}" value="{{currentIndex}}" title="指定团体" cancelBtn="取消" confirmBtn="确认"  bindchange="onPickerChange" bindclose="onPickerClose">
+  <t-picker-item options="{{orderGroupList}}"></t-picker-item>
+</t-picker>

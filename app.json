@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/about/index",
+    "pages/webview/index"
+  ],
+  "themeLocation": "theme.json",
+  "window": {
+    "navigationBarTextStyle": "@navTxtStyle",
+    "navigationBarBackgroundColor": "@navBgColor",
+    "navigationBarTitleText": ""
+  },
+  "darkmode": true,
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

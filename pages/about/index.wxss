@@ -1,0 +1,14 @@
+.footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-bottom: calc(16px + constant(safe-area-inset-bottom));
+  padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  left: constant(safe-area-inset-left);
+  left: env(safe-area-inset-left);
+  right: constant(safe-area-inset-right);
+  right: env(safe-area-inset-right)
+}

@@ -1,0 +1,7 @@
+<t-cell-group theme="card" style="margin-top: 32rpx;">
+  <t-cell title="当前版本" hover note="{{version}} ({{SDKVersion}})" />
+  <t-cell title="用户协议" hover arrow bordered url="/pages/webview/index?url=https%3A%2F%2Fwww.zyworks.org.cn%2Fagreement.html" />
+  <t-cell title="隐私政策" hover arrow bordered url="/pages/webview/index?url=https%3A%2F%2Fwww.zyworks.org.cn%2Fprivate.html" />
+  <t-cell title="备案号" hover note="{{beian}}" bind:tap="miit" />
+</t-cell-group>
+<t-footer text="©2013-{{year}} 正圆工坊 All Rights Reserved." t-class="footer"></t-footer>
