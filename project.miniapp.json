@@ -6,7 +6,7 @@
   "i18nFilePath": "i18n",
   "mini-android": {
     "resourcePath": "",
-    "sdkVersion": "1.4.18",
+    "sdkVersion": "1.5.0",
     "toolkitVersion": "0.11.0",
     "useExtendedSdk": {
       "media": false,
@@ -46,7 +46,7 @@
     "targetSdkVersion": 30
   },
   "mini-ios": {
-    "sdkVersion": "1.4.26",
+    "sdkVersion": "1.4.27",
     "toolkitVersion": "0.0.9",
     "useExtendedSdk": {
       "WeAppOpenFuns": false,
