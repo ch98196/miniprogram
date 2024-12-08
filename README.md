@@ -2,7 +2,7 @@
 
 一款随机抽选APP，专为地偶DD而生  
 
-<font color="#fa5151">因正圆工坊APP已经上架，正圆工坊小程序将于2025年1月1日零时起暂停服务，详情</font>[点此查看](https://mp.weixin.qq.com/s/HWV7Sth3AAmrq3ZeD0IKEA)  
+<span color="#fa5151">因正圆工坊APP已经上架，正圆工坊小程序将于2025年1月1日零时起暂停服务，详情</span>[点此查看](https://mp.weixin.qq.com/s/HWV7Sth3AAmrq3ZeD0IKEA)  
 
 > 基于微信[小程序多端框架](https://developers.weixin.qq.com/miniprogram/dev/platform-capabilities/miniapp/intro/)开发的船新版本，支持团体+成员复合抽取、指定团体抽取  
 > `正圆工坊`APP已于2024年12月06日22时在`小米应用市场`首发，，于2024年12月08日上架`应用宝`，并将陆续上架`华为应用市场`（已提审）和`三星应用市场`（筹备中）  
