@@ -4,5 +4,19 @@
   "setting": {
     "compileHotReLoad": true,
     "skylineRenderEnable": true
+  },
+  "libVersion": "3.7.2",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "invoice",
+          "pathName": "pages/invoice/invoice",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
   }
 }

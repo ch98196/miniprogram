@@ -25,7 +25,7 @@
         <t-button theme="light" block style="margin-right: 16rpx;" bind:tap="openOptions" disabled="{{status == 1 ? true : false}}">选项</t-button>
       </block>
       <block>
-        <t-button theme="primary" block wx:if="{{status == 0}}" disabled="{{list.length < 2 && orderGroupId < 0 ? true : false}}" bind:tap="startMotto">开始</t-button>
+        <t-button theme="primary" block wx:if="{{status == 0}}" disabled="{{(list.length < 2 && orderGroupId < 0) ? true : false}}" bind:tap="startMotto">开始</t-button>
         <t-button theme="primary" block wx:elif="{{status == 1}}" bind:tap="stopMotto">停止</t-button>
       </block>
     </view>

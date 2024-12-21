@@ -6,7 +6,7 @@
   "i18nFilePath": "i18n",
   "mini-android": {
     "resourcePath": "",
-    "sdkVersion": "1.5.0",
+    "sdkVersion": "1.5.2",
     "toolkitVersion": "0.11.0",
     "useExtendedSdk": {
       "media": false,
@@ -42,11 +42,11 @@
       "arm64-v8a": true,
       "armeabi-v7a": true
     },
-    "appMenuEnable": false,
+    "appMenuEnable": true,
     "targetSdkVersion": 30
   },
   "mini-ios": {
-    "sdkVersion": "1.4.27",
+    "sdkVersion": "1.5.1",
     "toolkitVersion": "0.0.9",
     "useExtendedSdk": {
       "WeAppOpenFuns": false,

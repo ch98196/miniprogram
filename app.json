@@ -12,5 +12,11 @@
   },
   "darkmode": true,
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "static": [
+    {
+      "pattern": "miniprogram/pages/webview/*",
+      "platforms": ["mini-android","mini-ios"]
+    }
+  ]
 }

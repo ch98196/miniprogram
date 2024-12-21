@@ -35,9 +35,14 @@ Page({
     query.exec((res) => {
       let cardHeight = res[0].height
       this.setData({
+        // #if MP
+        statusBarHeight: statusBarHeight + 36,
+        contentHeight: windowHeight - (cardHeight + 16) - (screenHeight - safeArea.bottom) - statusBarHeight - 120,
+        // #elif NATIVE
         statusBarHeight,
+        contentHeight: windowHeight - (cardHeight + 16) - (screenHeight - safeArea.bottom) - statusBarHeight - 80,
+        // #endif
         bottomHeight: screenHeight - safeArea.bottom,
-        contentHeight: windowHeight - (cardHeight + 16) - (screenHeight - safeArea.bottom) - statusBarHeight - 80
       })
     })
 
@@ -249,7 +254,7 @@ Page({
     } else if (data.member.length < 2) {
       data.member = []
     }
-    if(this.data.errmsg.some(currentValue => currentValue.length > 0)){
+    if (this.data.errmsg.some(currentValue => currentValue.length > 0)) {
       return;
     }
     const key = `list[${this.data.currentIndex}]`;
