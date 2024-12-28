@@ -8,7 +8,6 @@
     "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-tag": "tdesign-miniprogram/tag/tag",
-    "t-stepper": "tdesign-miniprogram/stepper/stepper",
     "t-picker": "tdesign-miniprogram/picker/picker",
     "t-picker-item": "tdesign-miniprogram/picker-item/picker-item"
   },
