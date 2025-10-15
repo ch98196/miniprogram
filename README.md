@@ -14,14 +14,11 @@
 
 ### 「正圆工坊」APP
 - 2024年12月06日22时在[小米应用市场](http://app.xiaomi.com/detail/1622540)首发
-- 2024年12月08日上架[应用宝](https://sj.qq.com/appdetail/org.zyworks.app)
-- 2024年12月10日上架[华为应用市场](https://appgallery.huawei.com/app/C110623035)  
+- ~~2024年12月08日上架[应用宝](https://sj.qq.com/appdetail/org.zyworks.app)~~
+- ~~2024年12月10日上架[华为应用市场](https://appgallery.huawei.com/app/C110623035)~~  
 > 目前仅支持安卓，由于成本原因，暂不发布iOS版本，建议clone到本地，用自己的小程序appid和多端应用id构建使用  
 
 ### 说明
-- 未来暂无增加新特性的计划，`BUG`随缘修复  
-- 正圆工坊成员请获取成员版以享受更多功能（成员版与公共版APP包名相同，不可共存，但成员版将包含公共版的功能）  
+- 未来暂无增加新特性的计划    
 
-> APP备案号：[闽ICP备2023013432号-5A](https://beian.miit.gov.cn)  
-> 小程序备案号：[闽ICP备2023013432号-1X](https://beian.miit.gov.cn)   
-> 本应用不涉及隐私信息收集，所有数据仅在本地缓存，详情见[隐私政策](https://www.zyworks.org.cn/private.html)
+> 本应用不涉及隐私信息收集，所有数据仅在本地缓存，详情见[隐私政策](https://www.zyworks.com/private.html)
