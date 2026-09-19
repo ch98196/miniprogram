@@ -19,3 +19,12 @@
 ### 说明
 - 未来暂无增加新特性的计划    
 - 本项目不涉及隐私信息收集，所有数据仅在本地缓存
+
+### 以下小偶像因本抽选系统而相识，在此鸣谢
+> 因地偶成员流动性大，因此不会标注其团体
+- [哇啦](https://weibo.com/u/6649957674)
+- [nono](https://weibo.com/u/7854851138)
+- [阿漓himeri](https://weibo.com/u/7737207681)
+- [朵朵Dorinn](https://weibo.com/u/7797723161)
+- [梦梦Yumeri](https://weibo.com/u/7494069127)
+- [茉哩Molly](https://weibo.com/u/7952765351)
